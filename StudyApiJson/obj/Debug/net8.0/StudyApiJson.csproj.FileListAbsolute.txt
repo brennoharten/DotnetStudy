@@ -1,0 +1,14 @@
+/root/home/Dev/DotnetStudy/StudyApiJson/bin/Debug/net8.0/StudyApiJson
+/root/home/Dev/DotnetStudy/StudyApiJson/bin/Debug/net8.0/StudyApiJson.deps.json
+/root/home/Dev/DotnetStudy/StudyApiJson/bin/Debug/net8.0/StudyApiJson.runtimeconfig.json
+/root/home/Dev/DotnetStudy/StudyApiJson/bin/Debug/net8.0/StudyApiJson.dll
+/root/home/Dev/DotnetStudy/StudyApiJson/bin/Debug/net8.0/StudyApiJson.pdb
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.GeneratedMSBuildEditorConfig.editorconfig
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.AssemblyInfoInputs.cache
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.AssemblyInfo.cs
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.csproj.CoreCompileInputs.cache
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.dll
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/refint/StudyApiJson.dll
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.pdb
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/StudyApiJson.genruntimeconfig.cache
+/root/home/Dev/DotnetStudy/StudyApiJson/obj/Debug/net8.0/ref/StudyApiJson.dll

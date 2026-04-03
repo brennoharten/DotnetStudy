@@ -1,0 +1,14 @@
+/root/home/Dev/DotnetStudy/Study/bin/Debug/net8.0/Study
+/root/home/Dev/DotnetStudy/Study/bin/Debug/net8.0/Study.deps.json
+/root/home/Dev/DotnetStudy/Study/bin/Debug/net8.0/Study.runtimeconfig.json
+/root/home/Dev/DotnetStudy/Study/bin/Debug/net8.0/Study.dll
+/root/home/Dev/DotnetStudy/Study/bin/Debug/net8.0/Study.pdb
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.GeneratedMSBuildEditorConfig.editorconfig
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.AssemblyInfoInputs.cache
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.AssemblyInfo.cs
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.csproj.CoreCompileInputs.cache
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.dll
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/refint/Study.dll
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.pdb
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/Study.genruntimeconfig.cache
+/root/home/Dev/DotnetStudy/Study/obj/Debug/net8.0/ref/Study.dll

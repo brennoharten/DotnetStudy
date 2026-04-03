@@ -1,0 +1,380 @@
+[
+  {
+    "Artista": "The Chainsmokers",
+    "Musicas": [
+      {
+        "song": "#SELFIE - Original Mix",
+        "artist": "The Chainsmokers",
+        "duration_ms": 183750,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Closer",
+        "artist": "The Chainsmokers",
+        "duration_ms": 244960,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Don\u0027t Let Me Down",
+        "artist": "The Chainsmokers",
+        "duration_ms": 208373,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Paris",
+        "artist": "The Chainsmokers",
+        "duration_ms": 221506,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Roses",
+        "artist": "The Chainsmokers",
+        "duration_ms": 226738,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Sick Boy",
+        "artist": "The Chainsmokers",
+        "duration_ms": 193200,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "Something Just Like This",
+        "artist": "The Chainsmokers",
+        "duration_ms": 247160,
+        "genre": "pop, Dance/Electronic"
+      },
+      {
+        "song": "This Feeling",
+        "artist": "The Chainsmokers",
+        "duration_ms": 197946,
+        "genre": "pop, Dance/Electronic"
+      }
+    ],
+    "Total": 8
+  },
+  {
+    "Artista": "will.i.am",
+    "Musicas": [
+      {
+        "song": "#thatPOWER",
+        "artist": "will.i.am",
+        "duration_ms": 279506,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Heartbreaker",
+        "artist": "will.i.am",
+        "duration_ms": 327880,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Scream \u0026 Shout",
+        "artist": "will.i.am",
+        "duration_ms": 283400,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "This Is Love",
+        "artist": "will.i.am",
+        "duration_ms": 279026,
+        "genre": "hip hop, pop"
+      }
+    ],
+    "Total": 4
+  },
+  {
+    "Artista": "Eminem",
+    "Musicas": [
+      {
+        "song": "\u0027Till I Collapse",
+        "artist": "Eminem",
+        "duration_ms": 297786,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Ass Like That",
+        "artist": "Eminem",
+        "duration_ms": 265480,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Berzerk",
+        "artist": "Eminem",
+        "duration_ms": 238746,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Cleanin\u0027 Out My Closet",
+        "artist": "Eminem",
+        "duration_ms": 297840,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Crack A Bottle",
+        "artist": "Eminem",
+        "duration_ms": 297520,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Just Lose It",
+        "artist": "Eminem",
+        "duration_ms": 248680,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Like Toy Soldiers",
+        "artist": "Eminem",
+        "duration_ms": 296880,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Like Toy Soldiers",
+        "artist": "Eminem",
+        "duration_ms": 296880,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Lose Yourself - From \u00228 Mile\u0022 Soundtrack",
+        "artist": "Eminem",
+        "duration_ms": 322226,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Love The Way You Lie",
+        "artist": "Eminem",
+        "duration_ms": 263373,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Mockingbird",
+        "artist": "Eminem",
+        "duration_ms": 250760,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Not Afraid",
+        "artist": "Eminem",
+        "duration_ms": 248133,
+        "genre": "hip hop"
+      },
+      {
+        "song": "River (feat. Ed Sheeran)",
+        "artist": "Eminem",
+        "duration_ms": 221013,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Shake That",
+        "artist": "Eminem",
+        "duration_ms": 274440,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Sing For The Moment",
+        "artist": "Eminem",
+        "duration_ms": 339546,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Stan",
+        "artist": "Eminem",
+        "duration_ms": 404106,
+        "genre": "hip hop"
+      },
+      {
+        "song": "The Monster",
+        "artist": "Eminem",
+        "duration_ms": 250188,
+        "genre": "hip hop"
+      },
+      {
+        "song": "The Real Slim Shady",
+        "artist": "Eminem",
+        "duration_ms": 284200,
+        "genre": "hip hop"
+      },
+      {
+        "song": "We Made You",
+        "artist": "Eminem",
+        "duration_ms": 269613,
+        "genre": "hip hop"
+      },
+      {
+        "song": "When I\u0027m Gone",
+        "artist": "Eminem",
+        "duration_ms": 281320,
+        "genre": "hip hop"
+      },
+      {
+        "song": "Without Me",
+        "artist": "Eminem",
+        "duration_ms": 290320,
+        "genre": "hip hop"
+      }
+    ],
+    "Total": 21
+  },
+  {
+    "Artista": "Sean Paul",
+    "Musicas": [
+      {
+        "song": "(When You Gonna) Give It Up to Me (feat. Keyshia Cole) - Radio Version",
+        "artist": "Sean Paul",
+        "duration_ms": 243880,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Get Busy",
+        "artist": "Sean Paul",
+        "duration_ms": 211666,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Gimme the Light",
+        "artist": "Sean Paul",
+        "duration_ms": 228000,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "I\u0027m Still in Love with You (feat. Sasha)",
+        "artist": "Sean Paul",
+        "duration_ms": 273360,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Like Glue",
+        "artist": "Sean Paul",
+        "duration_ms": 232506,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "No Lie",
+        "artist": "Sean Paul",
+        "duration_ms": 221176,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "She Doesn\u0027t Mind",
+        "artist": "Sean Paul",
+        "duration_ms": 227786,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "Temperature",
+        "artist": "Sean Paul",
+        "duration_ms": 218573,
+        "genre": "hip hop, pop"
+      },
+      {
+        "song": "We Be Burnin\u0027",
+        "artist": "Sean Paul",
+        "duration_ms": 213066,
+        "genre": "hip hop, pop"
+      }
+    ],
+    "Total": 9
+  },
+  {
+    "Artista": "Taylor Swift",
+    "Musicas": [
+      {
+        "song": "...Ready For It?",
+        "artist": "Taylor Swift",
+        "duration_ms": 208186,
+        "genre": "pop"
+      },
+      {
+        "song": "22",
+        "artist": "Taylor Swift",
+        "duration_ms": 232120,
+        "genre": "pop"
+      },
+      {
+        "song": "Back To December",
+        "artist": "Taylor Swift",
+        "duration_ms": 293026,
+        "genre": "pop"
+      },
+      {
+        "song": "Bad Blood",
+        "artist": "Taylor Swift",
+        "duration_ms": 211933,
+        "genre": "pop"
+      },
+      {
+        "song": "Bad Blood",
+        "artist": "Taylor Swift",
+        "duration_ms": 200106,
+        "genre": "pop"
+      },
+      {
+        "song": "Blank Space",
+        "artist": "Taylor Swift",
+        "duration_ms": 231826,
+        "genre": "pop"
+      },
+      {
+        "song": "Cruel Summer",
+        "artist": "Taylor Swift",
+        "duration_ms": 178426,
+        "genre": "pop"
+      },
+      {
+        "song": "I Knew You Were Trouble.",
+        "artist": "Taylor Swift",
+        "duration_ms": 219720,
+        "genre": "pop"
+      },
+      {
+        "song": "I Knew You Were Trouble.",
+        "artist": "Taylor Swift",
+        "duration_ms": 219720,
+        "genre": "pop"
+      },
+      {
+        "song": "Look What You Made Me Do",
+        "artist": "Taylor Swift",
+        "duration_ms": 211853,
+        "genre": "pop"
+      },
+      {
+        "song": "Love Story",
+        "artist": "Taylor Swift",
+        "duration_ms": 236266,
+        "genre": "pop"
+      },
+      {
+        "song": "Shake It Off",
+        "artist": "Taylor Swift",
+        "duration_ms": 219200,
+        "genre": "pop"
+      },
+      {
+        "song": "Style",
+        "artist": "Taylor Swift",
+        "duration_ms": 231000,
+        "genre": "pop"
+      },
+      {
+        "song": "Style",
+        "artist": "Taylor Swift",
+        "duration_ms": 231000,
+        "genre": "pop"
+      },
+      {
+        "song": "Wildest Dreams",
+        "artist": "Taylor Swift",
+        "duration_ms": 220440,
+        "genre": "pop"
+      },
+      {
+        "song": "You Belong With Me",
+        "artist": "Taylor Swift",
+        "duration_ms": 231146,
+        "genre": "pop"
+      }
+    ],
+    "Total": 16
+  }
+]
