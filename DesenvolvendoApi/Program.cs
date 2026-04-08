@@ -1,3 +1,4 @@
+using AutoMapper;
 using DesenvolvendoApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -8,6 +9,18 @@ var connectionString = builder.Configuration.GetConnectionString("FilmeConnectio
 
 builder.Services.AddDbContext<FilmeContext>(opts => 
     opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddSingleton<IMapper>(sp =>
+{
+    var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
+
+    var config = new MapperConfiguration(cfg =>
+    {
+        cfg.AddMaps(AppDomain.CurrentDomain.GetAssemblies());
+    }, loggerFactory);
+
+    return config.CreateMapper();
+});
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
