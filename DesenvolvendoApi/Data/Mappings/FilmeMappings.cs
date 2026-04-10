@@ -1,4 +1,5 @@
 using DesenvolvendoApi.Data.Dtos;
+using DesenvolvendoApi.Data.Dtos.Sessao;
 using DesenvolvendoApi.Models;
 
 namespace DesenvolvendoApi.Data.Mappings
@@ -19,6 +20,21 @@ namespace DesenvolvendoApi.Data.Mappings
             filme.Titulo = dto.Titulo;
             filme.Genero = dto.Genero;
             filme.Duracao = dto.Duracao;
+        }
+        public static ReadFilmeDto ToDto(this Filme filme)
+        {
+            return new ReadFilmeDto
+            {
+                Id = filme.Id,
+                Titulo = filme.Titulo,
+                Genero = filme.Genero,
+                Duracao = filme.Duracao,
+                Sessoes = filme.Sessoes?.Select(s => new ReadSessaoDto
+                {
+                    FilmeId = s.FilmeId.GetValueOrDefault(),
+                    CinemaId = s.CinemaId.GetValueOrDefault()
+                }).ToList()
+            };
         }
 
     }

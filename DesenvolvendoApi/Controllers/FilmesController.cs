@@ -16,7 +16,8 @@ namespace DesenvolvendoApi.Controllers;
 [Produces("application/json")]
 public class FilmesController : ControllerBase
 {
-    private FilmeContext _context { get; set; }
+    private readonly FilmeContext _context;
+
     public FilmesController(FilmeContext context)
     {
         _context = context;
@@ -25,71 +26,86 @@ public class FilmesController : ControllerBase
     /// <summary>
     /// Retorna uma lista paginada de filmes.
     /// </summary>
-    /// <param name="page">Número da página (padrão: 1)</param>
-    /// <param name="pageSize">Quantidade de itens por página (padrão: 10)</param>
-    /// <returns>Lista de filmes</returns>
-    /// <response code="200">Lista retornada com sucesso</response>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<Filme>>> GetAllFilmes([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    public async Task<ActionResult<List<ReadFilmeDto>>> GetAllFilmes(
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 10,
+    [FromQuery] string? nomeCinema = null)
     {
-        var filmesPaginados = await _context.Filmes
-            .Skip((page - 1) * pageSize)
+        var query = _context.Filmes
+            .Include(f => f.Sessoes)
+            .ThenInclude(s => s.Cinema) // 🔥 necessário pro filtro
+            .AsQueryable();
+
+        // 🔥 filtro opcional
+        if (!string.IsNullOrWhiteSpace(nomeCinema))
+        {
+            query = query.Where(f =>
+                f.Sessoes.Any(s => s.Cinema.Nome == nomeCinema));
+        }
+
+        var filmes = await query
+            .Skip((page - 1) * pageSize) // 👈 paginação depois do filtro
             .Take(pageSize)
             .ToListAsync();
 
-        return Ok(filmesPaginados);
+        var filmesDto = filmes.Select(f => f.ToDto()).ToList();
+
+        return Ok(filmesDto);
     }
 
     /// <summary>
-    /// Cria um novo filme com base nos dados fornecidos no CreateFilmeDto. Retorna o filme criado com um status HTTP 201 Created.
+    /// Cria um novo filme.
     /// </summary>
-    /// <param name="filmeDto">Objeto com os dados do filme a ser criado</param>
-    /// <returns>Task<IActionResult></returns>
-    /// <response code="201">Filme criado com sucesso</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult<Filme>> CreateFilme([FromBody] CreateFilmeDto filmeDto)
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ReadFilmeDto>> CreateFilme([FromBody] CreateFilmeDto filmeDto)
     {
-        Filme filme = filmeDto.ToFilme();
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var filme = filmeDto.ToFilme();
+
         _context.Filmes.Add(filme);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetFilmeById), "Filmes", new { id = filme.Id }, filme);
+
+        return CreatedAtAction(nameof(GetFilmeById),
+            new { id = filme.Id },
+            filme.ToDto());
     }
 
     /// <summary>
-    /// Retorna um filme específico pelo seu identificador.
+    /// Retorna um filme por Id.
     /// </summary>
-    /// <param name="id">Id do filme</param>
-    /// <returns>Filme encontrado</returns>
-    /// <response code="200">Filme encontrado com sucesso</response>
-    /// <response code="404">Filme não encontrado</response>
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<Filme>> GetFilmeById(int id)
+    public async Task<ActionResult<ReadFilmeDto>> GetFilmeById(int id)
     {
-        var filme = await _context.Filmes.FirstOrDefaultAsync(f => f.Id == id);
+        var filme = await _context.Filmes
+            .Include(f => f.Sessoes) // 🔥 importante
+            .FirstOrDefaultAsync(f => f.Id == id);
 
         if (filme == null)
             return NotFound();
 
-        return Ok(filme);
+        return Ok(filme.ToDto());
     }
 
     /// <summary>
-    /// Atualiza completamente os dados de um filme existente.
+    /// Atualiza completamente um filme.
     /// </summary>
-    /// <param name="id">Id do filme</param>
-    /// <param name="filmeDto">Objeto com os novos dados do filme</param>
-    /// <returns>Nenhum conteúdo</returns>
-    /// <response code="204">Filme atualizado com sucesso</response>
-    /// <response code="404">Filme não encontrado</response>
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         var filme = await _context.Filmes.FirstOrDefaultAsync(f => f.Id == id);
 
         if (filme == null)
@@ -103,14 +119,8 @@ public class FilmesController : ControllerBase
     }
 
     /// <summary>
-    /// Atualiza parcialmente os dados de um filme.
-    /// Apenas os campos informados serão modificados.
+    /// Atualiza parcialmente um filme.
     /// </summary>
-    /// <param name="id">Id do filme</param>
-    /// <param name="dto">Objeto com os campos a serem atualizados</param>
-    /// <returns>Nenhum conteúdo</returns>
-    /// <response code="204">Filme atualizado com sucesso</response>
-    /// <response code="404">Filme não encontrado</response>
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -136,12 +146,8 @@ public class FilmesController : ControllerBase
     }
 
     /// <summary>
-    /// Remove um filme pelo seu identificador.
+    /// Remove um filme.
     /// </summary>
-    /// <param name="id">Id do filme</param>
-    /// <returns>Nenhum conteúdo</returns>
-    /// <response code="204">Filme removido com sucesso</response>
-    /// <response code="404">Filme não encontrado</response>
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -153,7 +159,6 @@ public class FilmesController : ControllerBase
             return NotFound();
 
         _context.Filmes.Remove(filme);
-
         await _context.SaveChangesAsync();
 
         return NoContent();

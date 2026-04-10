@@ -84,6 +84,8 @@ public class CinemaController : ControllerBase
         _context.Cinemas.Add(cinema);
         await _context.SaveChangesAsync();
 
+        await _context.Entry(cinema).Reference(c => c.Endereco).LoadAsync();
+
         var cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
 
         return CreatedAtAction(nameof(GetCinemaById), new { id = cinema.Id }, cinemaDto);

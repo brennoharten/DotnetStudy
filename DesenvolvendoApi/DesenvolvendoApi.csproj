@@ -11,6 +11,7 @@
     <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.25">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
