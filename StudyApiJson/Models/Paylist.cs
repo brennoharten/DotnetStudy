@@ -6,48 +6,47 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using Models;
 
-namespace StudyApiJson.Models
+namespace StudyApiJson.Models;
+
+public class Paylist : ICollection<Musica>
 {
-    public class Paylist : ICollection<Musica>
+    List<Musica> musicas = new List<Musica>();
+    public int Count => musicas.Count();
+
+    public bool IsReadOnly => false;
+
+    public void Clear()
     {
-        List<Musica> musicas = new List<Musica>();
-        public int Count => musicas.Count();
+        musicas .Clear();
+    }
 
-        public bool IsReadOnly => false;
+    public void CopyTo(Musica[] array, int arrayIndex)
+    {
+        musicas.CopyTo(array, arrayIndex);
+    }
 
-        public void Clear()
-        {
-            musicas .Clear();
-        }
+    public IEnumerator GetEnumerator()
+    {
+        return musicas.GetEnumerator();
+    }
 
-        public void CopyTo(Musica[] array, int arrayIndex)
-        {
-            musicas.CopyTo(array, arrayIndex);
-        }
+    void ICollection<Musica>.Add(Musica item)
+    {
+        musicas.Add(item);
+    }
 
-        public IEnumerator GetEnumerator()
-        {
-            return musicas.GetEnumerator();
-        }
+    bool ICollection<Musica>.Contains(Musica item)
+    {
+        return musicas.Contains(item);
+    }
 
-        void ICollection<Musica>.Add(Musica item)
-        {
-            musicas.Add(item);
-        }
+    IEnumerator<Musica> IEnumerable<Musica>.GetEnumerator()
+    {
+        return musicas.GetEnumerator();
+    }
 
-        bool ICollection<Musica>.Contains(Musica item)
-        {
-            return musicas.Contains(item);
-        }
-
-        IEnumerator<Musica> IEnumerable<Musica>.GetEnumerator()
-        {
-            return musicas.GetEnumerator();
-        }
-
-        bool ICollection<Musica>.Remove(Musica item)
-        {
-            return musicas.Remove(item);
-        }
+    bool ICollection<Musica>.Remove(Musica item)
+    {
+        return musicas.Remove(item);
     }
 }

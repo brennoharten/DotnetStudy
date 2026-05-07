@@ -8,152 +8,151 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DesenvolvendoApi.Migrations
+namespace DesenvolvendoApi.Migrations;
+
+[DbContext(typeof(FilmeContext))]
+partial class FilmeContextModelSnapshot : ModelSnapshot
 {
-    [DbContext(typeof(FilmeContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    protected override void BuildModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.25")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "8.0.25")
+            .HasAnnotation("Proxies:ChangeTracking", false)
+            .HasAnnotation("Proxies:CheckEquality", false)
+            .HasAnnotation("Proxies:LazyLoading", true)
+            .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+        MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EnderecoId")
-                        .HasColumnType("int");
+                b.Property<int>("EnderecoId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Nome")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("EnderecoId")
-                        .IsUnique();
+                b.HasIndex("EnderecoId")
+                    .IsUnique();
 
-                    b.ToTable("Cinemas");
-                });
+                b.ToTable("Cinemas");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Endereco", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("DesenvolvendoApi.Models.Endereco", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Lugradouro")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Lugradouro")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
+                b.Property<int>("Numero")
+                    .HasColumnType("int");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Enderecos");
-                });
+                b.ToTable("Enderecos");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Filme", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("DesenvolvendoApi.Models.Filme", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Duracao")
-                        .HasColumnType("int");
+                b.Property<int>("Duracao")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                b.Property<string>("Genero")
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Titulo")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Filmes");
-                });
+                b.ToTable("Filmes");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Sessao", b =>
-                {
-                    b.Property<int?>("FilmeId")
-                        .HasColumnType("int");
+        modelBuilder.Entity("DesenvolvendoApi.Models.Sessao", b =>
+            {
+                b.Property<int?>("FilmeId")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("CinemaId")
-                        .HasColumnType("int");
+                b.Property<int?>("CinemaId")
+                    .HasColumnType("int");
 
-                    b.HasKey("FilmeId", "CinemaId");
+                b.HasKey("FilmeId", "CinemaId");
 
-                    b.HasIndex("CinemaId");
+                b.HasIndex("CinemaId");
 
-                    b.ToTable("Sessoes");
-                });
+                b.ToTable("Sessoes");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
-                {
-                    b.HasOne("DesenvolvendoApi.Models.Endereco", "Endereco")
-                        .WithOne("Cinema")
-                        .HasForeignKey("DesenvolvendoApi.Models.Cinema", "EnderecoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+        modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
+            {
+                b.HasOne("DesenvolvendoApi.Models.Endereco", "Endereco")
+                    .WithOne("Cinema")
+                    .HasForeignKey("DesenvolvendoApi.Models.Cinema", "EnderecoId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("Endereco");
-                });
+                b.Navigation("Endereco");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Sessao", b =>
-                {
-                    b.HasOne("DesenvolvendoApi.Models.Cinema", "Cinema")
-                        .WithMany("Sessoes")
-                        .HasForeignKey("CinemaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+        modelBuilder.Entity("DesenvolvendoApi.Models.Sessao", b =>
+            {
+                b.HasOne("DesenvolvendoApi.Models.Cinema", "Cinema")
+                    .WithMany("Sessoes")
+                    .HasForeignKey("CinemaId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("DesenvolvendoApi.Models.Filme", "Filme")
-                        .WithMany("Sessoes")
-                        .HasForeignKey("FilmeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasOne("DesenvolvendoApi.Models.Filme", "Filme")
+                    .WithMany("Sessoes")
+                    .HasForeignKey("FilmeId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("Cinema");
+                b.Navigation("Cinema");
 
-                    b.Navigation("Filme");
-                });
+                b.Navigation("Filme");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
-                {
-                    b.Navigation("Sessoes");
-                });
+        modelBuilder.Entity("DesenvolvendoApi.Models.Cinema", b =>
+            {
+                b.Navigation("Sessoes");
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Endereco", b =>
-                {
-                    b.Navigation("Cinema")
-                        .IsRequired();
-                });
+        modelBuilder.Entity("DesenvolvendoApi.Models.Endereco", b =>
+            {
+                b.Navigation("Cinema")
+                    .IsRequired();
+            });
 
-            modelBuilder.Entity("DesenvolvendoApi.Models.Filme", b =>
-                {
-                    b.Navigation("Sessoes");
-                });
+        modelBuilder.Entity("DesenvolvendoApi.Models.Filme", b =>
+            {
+                b.Navigation("Sessoes");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }
