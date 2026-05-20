@@ -12,19 +12,25 @@ namespace UsuarioApi.Services
 {
     public class TokenService
     {
+        private readonly IConfiguration configuration;
+        public TokenService(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
         public string GenerateToken(Usuario usuario)
         {
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.Id),
-                new Claim(ClaimTypes.Name, usuario.UserName)
+                new Claim(ClaimTypes.Name, usuario.UserName),
+                new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())
             });
 
             // Aqui você pode usar uma biblioteca como System.IdentityModel.Tokens.Jwt para gerar o token JWT
             var token = new JwtSecurityToken(
                     claims: claimsIdentity.Claims,
                     expires: DateTime.UtcNow.AddHours(1),
-                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("afdgafdgfsfdgsthrthsfsdfgsdrfgSAFDGSe")), SecurityAlgorithms.HmacSha256)
+                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["SymmetricSecurityKey"])), SecurityAlgorithms.HmacSha256)
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
