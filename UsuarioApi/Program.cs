@@ -10,6 +10,7 @@ using UsuarioApi.Authorization;
 using UsuarioApi.Interfaces;
 using UsuarioApi.Models;
 using UsuarioApi.Services;
+using UsuarioApi.Infrastructure.Mongo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,10 @@ builder.Services.AddSingleton<IMapper>(sp =>
 
     return config.CreateMapper();
 });
+
+// MongoDB settings and context
+builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.AddSingleton<MongoDbContext>();
 
 var app = builder.Build();
 
