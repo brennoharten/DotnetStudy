@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using UsuarioApi.Models;
+using UsuarioApi.Infrastructure.Mongo.Models;
 
 namespace UsuarioApi.Infrastructure.Mongo
 {

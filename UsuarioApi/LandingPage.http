@@ -1,0 +1,191 @@
+### Get Token (Login)
+POST http://localhost:5206/api/usuario/login
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "password": "Senha123!"
+}
+
+### Create Landing Page
+POST http://localhost:5206/api/landingpage/criar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Academia Fit Pro",
+  "subtitle": "Transforme seu corpo e mente",
+  "heroImageUrl": "https://example.com/hero.jpg",
+  "description": "A melhor academia da região com equipamentos modernos e personal trainers certificados.",
+  "features": [
+    "Musculação completa",
+    "Aulas de grupo",
+    "Personal trainer 24h",
+    "Nutricionista",
+    "Sauna"
+  ],
+  "services": [
+    {
+      "name": "Musculação",
+      "description": "Treinos personalizados com equipamentos modernos",
+      "iconUrl": "https://example.com/icon-musculacao.jpg"
+    },
+    {
+      "name": "Cardio",
+      "description": "Máquinas de último modelo",
+      "iconUrl": "https://example.com/icon-cardio.jpg"
+    },
+    {
+      "name": "Yoga",
+      "description": "Aulas relaxantes e revitalizantes",
+      "iconUrl": "https://example.com/icon-yoga.jpg"
+    }
+  ],
+  "pricingPlans": [
+    {
+      "name": "Plano Básico",
+      "price": 99.90,
+      "interval": "monthly",
+      "benefits": [
+        "Acesso à academia",
+        "Musculação",
+        "Cardio"
+      ]
+    },
+    {
+      "name": "Plano Premium",
+      "price": 199.90,
+      "interval": "monthly",
+      "benefits": [
+        "Acesso ilimitado",
+        "Personal trainer",
+        "Nutricionista",
+        "Todas as aulas"
+      ]
+    }
+  ],
+  "contact": {
+    "phone": "(11) 99999-9999",
+    "email": "contato@academiafitpro.com.br",
+    "address": "Rua das Flores, 123 - São Paulo, SP"
+  },
+  "socialLinks": [
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/academiafitpro"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com/academiafitpro"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "João Silva",
+      "content": "Excelente academia, consegui meus objetivos em 6 meses!",
+      "role": "Cliente"
+    }
+  ],
+  "openingHours": {
+    "Monday": "06:00 - 23:00",
+    "Tuesday": "06:00 - 23:00",
+    "Wednesday": "06:00 - 23:00",
+    "Thursday": "06:00 - 23:00",
+    "Friday": "06:00 - 23:00",
+    "Saturday": "08:00 - 22:00",
+    "Sunday": "08:00 - 20:00"
+  },
+  "galleryUrls": [
+    "https://example.com/gallery-1.jpg",
+    "https://example.com/gallery-2.jpg",
+    "https://example.com/gallery-3.jpg"
+  ],
+  "callToAction": {
+    "text": "Comece sua transformação hoje mesmo",
+    "buttonText": "Agende uma Avaliação",
+    "buttonUrl": "https://example.com/agendar"
+  },
+  "seo": {
+    "title": "Academia Fit Pro - Musculação, Yoga e Cardio em São Paulo",
+    "description": "A melhor academia em São Paulo com equipamentos modernos, personal trainer 24h e aulas de grupo.",
+    "keywords": ["academia", "musculação", "fitness", "São Paulo"]
+  },
+  "location": {
+    "address": "Rua das Flores, 123 - São Paulo, SP",
+    "latitude": -23.5505,
+    "longitude": -46.6333,
+    "googleMapsEmbed": "<iframe src=\"https://maps.google.com/...\"></iframe>"
+  },
+  "faqs": [
+    {
+      "question": "Qual é o horário de funcionamento?",
+      "answer": "Atendemos de segunda a sexta das 6h às 23h, sábados das 8h às 22h e domingo das 8h às 20h."
+    },
+    {
+      "question": "Posso experimentar antes de contratar?",
+      "answer": "Sim! Oferecemos 1 aula experimental gratuita."
+    }
+  ],
+  "tags": ["academia", "fitness", "musculação", "personal trainer"],
+  "isPublished": true
+}
+
+### Get My Landing Page
+GET http://localhost:5206/api/landingpage/minha-landing
+Authorization: Bearer {{token}}
+
+### Get Landing Page by ID (Public)
+GET http://localhost:5206/api/landingpage/{{landingPageId}}
+
+### Update Landing Page
+PUT http://localhost:5206/api/landingpage/{{landingPageId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Academia Fit Pro - Atualizada",
+  "subtitle": "Transforme seu corpo e mente com especialistas",
+  "heroImageUrl": "https://example.com/hero-new.jpg",
+  "description": "A melhor academia da região com equipamentos modernos, personal trainers certificados e nutricionista.",
+  "features": [
+    "Musculação completa",
+    "Aulas de grupo premium",
+    "Personal trainer 24h",
+    "Nutricionista",
+    "Sauna e hidromassagem"
+  ],
+  "services": [],
+  "pricingPlans": [],
+  "contact": {
+    "phone": "(11) 99999-9999",
+    "email": "contato@academiafitpro.com.br",
+    "address": "Rua das Flores, 123 - São Paulo, SP"
+  },
+  "socialLinks": [],
+  "testimonials": [],
+  "openingHours": {},
+  "galleryUrls": [],
+  "callToAction": {
+    "text": "",
+    "buttonText": "",
+    "buttonUrl": ""
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "keywords": []
+  },
+  "location": {
+    "address": "",
+    "latitude": null,
+    "longitude": null,
+    "googleMapsEmbed": ""
+  },
+  "faqs": [],
+  "tags": [],
+  "isPublished": true
+}
+
+### Delete Landing Page
+DELETE http://localhost:5206/api/landingpage/{{landingPageId}}
+Authorization: Bearer {{token}}

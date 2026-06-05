@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UsuarioApi.Models;
 
-namespace DesenvolvendoApi.Data;
+namespace UsuarioApi.Data;
 
 public class UsuarioDbContext : IdentityDbContext<Usuario>
 {

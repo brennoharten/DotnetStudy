@@ -1,16 +1,16 @@
 using System.Text;
 using AutoMapper;
-using DesenvolvendoApi.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
 using UsuarioApi.Authorization;
 using UsuarioApi.Interfaces;
 using UsuarioApi.Models;
 using UsuarioApi.Services;
 using UsuarioApi.Infrastructure.Mongo;
+using UsuarioApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +18,33 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme.",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
 
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 
 var connectionString = builder.Configuration["ConnectionStrings:UsuarioConnection"];
@@ -32,6 +57,7 @@ builder.Services.AddIdentity<Usuario, IdentityRole>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<ILandingPageService, LandingPageService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddSingleton<IAuthorizationHandler, IdadeAuthorization>();
 
@@ -81,7 +107,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "UsuarioApi v1");
+        c.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseRouting();
