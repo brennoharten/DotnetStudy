@@ -1,5 +1,6 @@
 using AutoMapper;
 using UsuarioApi.Data.Dtos.LandingPage;
+using UsuarioApi.Data.Dtos.Public;
 using UsuarioApi.Infrastructure.Mongo.Models;
 
 namespace UsuarioApi.Profiles
@@ -52,6 +53,17 @@ namespace UsuarioApi.Profiles
             // Faq mappings
             CreateMap<FaqDto, Faq>();
             CreateMap<Faq, FaqDto>();
+
+            // Public mappings
+            CreateMap<Service, PublicServiceDto>();
+            CreateMap<PricingPlan, PublicPricingPlanDto>();
+            CreateMap<ContactInfo, PublicContactDto>();
+            CreateMap<SocialLink, PublicSocialLinkDto>();
+            CreateMap<Testimonial, PublicTestimonialDto>();
+            CreateMap<CallToAction, PublicCallToActionDto>();
+            CreateMap<SeoMeta, PublicSeoDto>();
+            CreateMap<Location, PublicLocationDto>();
+            CreateMap<Faq, PublicFaqDto>();
         }
     }
 }

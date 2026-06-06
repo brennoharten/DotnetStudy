@@ -62,6 +62,7 @@ namespace UsuarioApi.Services
 
             var landingPage = _mapper.Map<MongoLandingPage>(dto);
             landingPage.UsuarioId = usuarioId;
+            landingPage.Slug = CreateSlug(landingPage.Title);
             landingPage.CreatedAt = DateTime.UtcNow;
             landingPage.UpdatedAt = DateTime.UtcNow;
 
@@ -115,6 +116,7 @@ namespace UsuarioApi.Services
                 .Set(lp => lp.Subtitle, dto.Subtitle)
                 .Set(lp => lp.HeroImageUrl, dto.HeroImageUrl)
                 .Set(lp => lp.Description, dto.Description)
+                .Set(lp => lp.Slug, CreateSlug(dto.Title))
                 .Set(lp => lp.Features, dto.Features)
                 .Set(lp => lp.Services, _mapper.Map<List<MongoService>>(dto.Services))
                 .Set(lp => lp.PricingPlans, _mapper.Map<List<MongoPricingPlan>>(dto.PricingPlans))
@@ -160,6 +162,27 @@ namespace UsuarioApi.Services
             }
 
             return false;
+        }
+
+        private static string CreateSlug(string title)
+        {
+            var normalized = title.Trim().ToLowerInvariant();
+            var slug = normalized
+                .Replace("á", "a")
+                .Replace("à", "a")
+                .Replace("ã", "a")
+                .Replace("â", "a")
+                .Replace("é", "e")
+                .Replace("ê", "e")
+                .Replace("í", "i")
+                .Replace("ó", "o")
+                .Replace("ô", "o")
+                .Replace("õ", "o")
+                .Replace("ú", "u")
+                .Replace("ç", "c");
+
+            slug = string.Join("-", slug.Split(new[] { ' ', '/', '\\', '.', ',', ';', ':', '!', '?', '(', ')', '[', ']' }, StringSplitOptions.RemoveEmptyEntries));
+            return slug;
         }
     }
 }

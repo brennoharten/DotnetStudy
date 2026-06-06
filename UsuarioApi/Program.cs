@@ -8,7 +8,9 @@ using Microsoft.OpenApi.Models;
 using UsuarioApi.Authorization;
 using UsuarioApi.Interfaces;
 using UsuarioApi.Models;
+using UsuarioApi.Repositories;
 using UsuarioApi.Services;
+using UsuarioApi.Services.Public;
 using UsuarioApi.Infrastructure.Mongo;
 using UsuarioApi.Data;
 
@@ -58,6 +60,8 @@ builder.Services.AddIdentity<Usuario, IdentityRole>()
 
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ILandingPageService, LandingPageService>();
+builder.Services.AddScoped<IPublicLandingPageRepository, PublicLandingPageRepository>();
+builder.Services.AddScoped<IPublicLandingPageService, PublicLandingPageService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddSingleton<IAuthorizationHandler, IdadeAuthorization>();
 

@@ -1,0 +1,21 @@
+export type PublicLandingPage = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  heroImageUrl: string;
+  description: string;
+  features: string[];
+  services: { name: string; description: string; iconUrl: string }[];
+  pricingPlans: { name: string; price: number; interval: string; benefits: string[] }[];
+  contact: { phone: string; email: string; address: string };
+  socialLinks: { platform: string; url: string }[];
+  testimonials: { author: string; content: string; role: string }[];
+  openingHours: Record<string, string>;
+  galleryUrls: string[];
+  callToAction: { text: string; buttonText: string; buttonUrl: string };
+  seo: { title: string; description: string; keywords: string[] };
+  location: { address: string; latitude?: number | null; longitude?: number | null; googleMapsEmbed: string };
+  faqs: { question: string; answer: string }[];
+  tags: string[];
+  isPublished: boolean;
+};

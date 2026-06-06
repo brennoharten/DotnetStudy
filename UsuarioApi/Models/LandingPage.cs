@@ -14,6 +14,8 @@ namespace UsuarioApi.Models
         // Reference to the Usuario stored in Postgres (IdentityUser.Id)
         public string UsuarioId { get; set; } = null!;
 
+        public string Slug { get; set; } = string.Empty;
+
         public string Title { get; set; } = string.Empty;
         public string Subtitle { get; set; } = string.Empty;
         public string HeroImageUrl { get; set; } = string.Empty;

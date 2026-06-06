@@ -10,43 +10,27 @@ namespace UsuarioApi.Infrastructure.Mongo.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = null!;
-
         // Reference to the Usuario stored in Postgres (IdentityUser.Id)
         public string UsuarioId { get; set; } = null!;
-
+        public string Slug { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
         public string Subtitle { get; set; } = string.Empty;
         public string HeroImageUrl { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-
         public List<string> Features { get; set; } = new();
-
         public List<Service> Services { get; set; } = new();
-
         public List<PricingPlan> PricingPlans { get; set; } = new();
-
         public ContactInfo Contact { get; set; } = new ContactInfo();
-
         public List<SocialLink> SocialLinks { get; set; } = new();
-
         public List<Testimonial> Testimonials { get; set; } = new();
-
         public Dictionary<string, string> OpeningHours { get; set; } = new();
-
         public List<string> GalleryUrls { get; set; } = new();
-
         public CallToAction CallToAction { get; set; } = new CallToAction();
-
         public SeoMeta Seo { get; set; } = new SeoMeta();
-
         public Location Location { get; set; } = new Location();
-
         public List<Faq> Faqs { get; set; } = new();
-
         public List<string> Tags { get; set; } = new();
-
         public bool IsPublished { get; set; } = false;
-
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
